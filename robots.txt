@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+sitemap: https://bankkz.com/sitemap477.xml
+sitemap: https://bankkz.com/sitemap712.xml
+sitemap: https://bankkz.com/sitemap738.xml
+sitemap: https://bankkz.com/sitemap866.xml
+sitemap: https://bankkz.com/sitemap17.xml
