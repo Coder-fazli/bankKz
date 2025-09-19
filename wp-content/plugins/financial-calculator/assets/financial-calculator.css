@@ -1,0 +1,334 @@
+/**
+ * Financial Calculator Plugin Styles
+ *
+ * @package FinancialCalculator
+ * @version 1.0.0
+ */
+
+.financial-calculator-widget {
+    background: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 20px 0;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid #f1f5f9;
+    max-width: 100%;
+}
+
+.financial-calculator-widget .calculator {
+    display: none;
+}
+
+.financial-calculator-widget .calculator.active {
+    display: block;
+}
+
+.financial-calculator-widget .calc-type-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.financial-calculator-widget .type-btn {
+    background: white;
+    border: 1px solid #e8ecf4;
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: #64748b;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.financial-calculator-widget .type-btn.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+.financial-calculator-widget .type-btn:hover {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.financial-calculator-widget .type-btn.active:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.financial-calculator-widget .value-box {
+    background-color: rgb(245 245 245);
+    border-radius: 12px;
+    padding: 20px 24px 8px 24px;
+    margin-bottom: 24px;
+    border: none;
+    box-shadow: none;
+    position: relative;
+}
+
+.financial-calculator-widget .value-box.half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.financial-calculator-widget .value-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: none;
+    letter-spacing: 0.25px;
+}
+
+.financial-calculator-widget .value-display {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.financial-calculator-widget .input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.financial-calculator-widget .result-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 24px 32px;
+    text-align: center;
+    margin-top: 32px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.financial-calculator-widget .result-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: none;
+    letter-spacing: 0.25px;
+}
+
+.financial-calculator-widget .result-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.1;
+}
+
+.financial-calculator-widget .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.financial-calculator-widget .result-item {
+    background-color: rgb(245 245 245);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: left;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.financial-calculator-widget .result-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.financial-calculator-widget .result-item .result-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.financial-calculator-widget .slider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, rgb(37 99 235) 0%, rgb(37 99 235) var(--fill-percent, 0%), #E5E7EB var(--fill-percent, 0%), #E5E7EB 100%);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.2s ease;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.financial-calculator-widget .slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    border-radius: 0 0 12px 12px;
+    background: transparent;
+}
+
+.financial-calculator-widget .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgb(37 99 235);
+    cursor: grab;
+    border: none;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 2;
+    margin-top: -7px;
+}
+
+.financial-calculator-widget .slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    cursor: grab;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+}
+
+.financial-calculator-widget .slider::-webkit-slider-thumb:active {
+    transform: scale(1.05);
+    cursor: grabbing;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.5);
+}
+
+.financial-calculator-widget .slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgb(37 99 235);
+    cursor: grab;
+    border: none;
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease;
+    margin-top: -7px;
+}
+
+.financial-calculator-widget .slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    cursor: grab;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+}
+
+.financial-calculator-widget .slider::-moz-range-thumb:active {
+    transform: scale(1.05);
+    cursor: grabbing;
+}
+
+.financial-calculator-widget .slider::-moz-range-track {
+    height: 2px;
+    border-radius: 0 0 12px 12px;
+    background: linear-gradient(to right, rgb(37 99 235) 0%, rgb(37 99 235) var(--fill-percent, 0%), #E5E7EB var(--fill-percent, 0%), #E5E7EB 100%);
+    border: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .financial-calculator-widget {
+        padding: 25px;
+        margin: 10px;
+    }
+
+    .financial-calculator-widget .input-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .financial-calculator-widget .calc-type-buttons {
+        flex-direction: column;
+    }
+
+    .financial-calculator-widget .type-btn {
+        width: 100%;
+    }
+
+    .financial-calculator-widget .results-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .financial-calculator-widget .result-item {
+        text-align: center;
+    }
+
+    .financial-calculator-widget .result-item .result-value {
+        font-size: 24px;
+    }
+
+    .financial-calculator-widget .result-value {
+        font-size: 28px;
+    }
+}
+
+/* Calculator section specific styles */
+.financial-calculator-widget .calculator-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid #f1f5f9;
+}
+
+@media (max-width: 768px) {
+    .financial-calculator-widget .calculator-section {
+        padding: 25px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .financial-calculator-widget {
+        background: #1f2937;
+        border-color: #374151;
+    }
+
+    .financial-calculator-widget .value-box,
+    .financial-calculator-widget .result-item {
+        background-color: #374151;
+    }
+
+    .financial-calculator-widget .result-box {
+        background: #374151;
+    }
+
+    .financial-calculator-widget .value-display,
+    .financial-calculator-widget .result-value {
+        color: #f9fafb;
+    }
+
+    .financial-calculator-widget .value-label,
+    .financial-calculator-widget .result-label {
+        color: #d1d5db;
+    }
+
+    .financial-calculator-widget .type-btn {
+        background: #374151;
+        color: #d1d5db;
+        border-color: #4b5563;
+    }
+
+    .financial-calculator-widget .type-btn:hover {
+        background: #4b5563;
+        border-color: #6b7280;
+    }
+}
