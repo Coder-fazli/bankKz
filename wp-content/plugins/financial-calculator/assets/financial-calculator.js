@@ -1,17 +1,83 @@
 /**
- * Financial Calculator Plugin JavaScript
+ * Financial Calculator Plugin JavaScript - New Design
  *
  * @package FinancialCalculator
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 jQuery(document).ready(function($) {
     'use strict';
 
     // Initialize all calculators on page
+    $('.loan__calculate').each(function() {
+        initializeNewCalculator($(this));
+    });
+
+    // Legacy support for old calculators
     $('.financial-calculator-widget').each(function() {
         initializeCalculator($(this));
     });
+
+    function initializeNewCalculator($widget) {
+        const uniqueId = $widget.attr('id');
+
+        // Initialize range sliders
+        $widget.find('.irs-range-slider').each(function() {
+            const $slider = $(this);
+            const $target = $('#' + $slider.data('target'));
+
+            // Sync slider with input
+            $slider.on('input change', function() {
+                const value = parseInt($(this).val());
+                $target.val(formatNumber(value));
+                updateNewCalculation(uniqueId);
+            });
+
+            // Sync input with slider
+            $target.on('input change', function() {
+                const value = parseInt($(this).val().replace(/[^\d]/g, ''));
+                if (!isNaN(value)) {
+                    $slider.val(value);
+                    updateNewCalculation(uniqueId);
+                }
+            });
+        });
+
+        // Initialize dropdown
+        $widget.find('select').on('change', function() {
+            updateNewCalculation(uniqueId);
+        });
+
+        // Initial calculation
+        updateNewCalculation(uniqueId);
+    }
+
+    function updateNewCalculation(uniqueId) {
+        const $widget = $('#' + uniqueId);
+
+        // Get values
+        const loanAmount = parseInt($('#loan-price-' + uniqueId).val().replace(/[^\d]/g, '')) || 0;
+        const loanTerm = parseInt($('#loan-month-' + uniqueId).val()) || 0;
+        const conditions = parseInt($('#loan-conditions-' + uniqueId).val()) || 0;
+
+        // Interest rates based on conditions
+        const interestRates = [12, 10, 8]; // Поручительство, Недвижимость, Автомобиль
+        const annualRate = interestRates[conditions] || 12;
+        const monthlyRate = annualRate / 100 / 12;
+
+        if (loanAmount > 0 && loanTerm > 0) {
+            // Calculate monthly payment using loan formula
+            const monthlyPayment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) /
+                                 (Math.pow(1 + monthlyRate, loanTerm) - 1);
+
+            const totalAmount = monthlyPayment * loanTerm;
+
+            // Update display
+            $('#total-amount-' + uniqueId).html(formatNumber(totalAmount.toFixed(2)) + '<em> AZN </em>');
+            $('#monthly-payment-' + uniqueId).html(formatNumber(monthlyPayment.toFixed(2)) + ' <em>AZN</em>');
+            $('#interest-rate-' + uniqueId).html(' ' + annualRate + ' <em>%</em>');
+        }
+    }
 
     function initializeCalculator($widget) {
         const uniqueId = $widget.attr('id');
@@ -149,9 +215,9 @@ jQuery(document).ready(function($) {
         $slider.css('--fill-percent', value + '%');
     }
 
-    // Format number with spaces (Kazakhstan format)
+    // Format number with spaces (Azerbaijan format)
     function formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
     }
 
     // Sync inputs with sliders and displays
