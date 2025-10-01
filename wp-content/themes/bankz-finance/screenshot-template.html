@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankKz Finance - Theme Screenshot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f1eb 0%, #e8dcc0 100%);
+            width: 1200px;
+            height: 900px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: #6b4226;
+            color: #f5f1eb;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .slider {
+            background: linear-gradient(135deg, #8b6332 0%, #6b4226 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .slider h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .slider p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .articles-grid {
+            border: solid 2px #EBEBEB;
+            padding: 20px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .article-card {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #6b4226;
+        }
+
+        .article-card h3 {
+            color: #6b4226;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .article-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .widget {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .calculator-widget {
+            background: linear-gradient(135deg, #f5f1eb 0%, #e8dcc0 100%);
+            text-align: center;
+        }
+
+        .widget h3 {
+            color: #6b4226;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .calculator-logo {
+            width: 60px;
+            height: 60px;
+            background: #6b4226;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .calc-button {
+            background: #6b4226;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .about-widget {
+            background: #f9f6f1;
+        }
+
+        .about-widget p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            background: rgba(107, 66, 38, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="header">
+                <h1>BankKz Finance</h1>
+                <p>Профессиональный финансовый блог Казахстана</p>
+            </div>
+
+            <div class="slider">
+                <h2>Финансовые новости и аналитика</h2>
+                <p>Актуальная информация о банковском секторе, инвестициях и экономике Казахстана</p>
+            </div>
+
+            <div class="articles-grid">
+                <div class="article-card">
+                    <h3>Новые тарифы банков</h3>
+                    <p>Обзор изменений в тарифной политике крупнейших банков страны...</p>
+                </div>
+                <div class="article-card">
+                    <h3>Инвестиции в 2024</h3>
+                    <p>Лучшие инвестиционные возможности на казахстанском рынке...</p>
+                </div>
+                <div class="article-card">
+                    <h3>Кредитные программы</h3>
+                    <p>Сравнение условий кредитования в различных банках...</p>
+                </div>
+                <div class="article-card">
+                    <h3>Валютный рынок</h3>
+                    <p>Прогноз курса тенге на ближайшие месяцы...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="widget calculator-widget">
+                <h3>Калькулятор кредита</h3>
+                <div class="calculator-logo">₸</div>
+                <p style="margin-bottom: 15px; font-size: 14px;">Рассчитайте ваш кредит</p>
+                <button class="calc-button">Открыть калькулятор</button>
+            </div>
+
+            <div class="widget about-widget">
+                <h3>О проекте</h3>
+                <p>BankKz Finance - ведущий финансовый портал Казахстана, предоставляющий актуальную информацию о банковских услугах, инвестициях и экономических трендах.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">BankKz Finance Theme</div>
+</body>
+</html>

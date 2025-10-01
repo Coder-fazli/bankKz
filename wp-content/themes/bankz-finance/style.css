@@ -1,0 +1,11 @@
+/*
+Theme Name: BankKz Finance
+Description: Professional financial blog theme for Kazakhstan banking and finance content. Features brown/cream color scheme, dynamic slider, calculator widget, and comprehensive admin controls.
+Author: BankKz Team
+Version: 1.0.0
+License: GPL v2 or later
+Text Domain: bankz-finance
+*/
+
+/* Import main stylesheet */
+@import url('assets/css/main.css');
